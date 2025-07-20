@@ -35,7 +35,7 @@ const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
         {projects.map((project, idx) => (
           <div
             key={project.id}
-            className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen h-screen snap-start py-0 px-2 lg:px-0 border-b border-gray-100 bg-gradient-to-br from-white to-gray-50 overflow-hidden"
+            className="relative flex flex-col lg:flex-row items-center justify-center min-h-[60vh] snap-start py-0 px-2 lg:px-0 border-b border-gray-100 bg-gradient-to-br from-white to-gray-50 overflow-hidden"
           >
             {/* Blob SVG */}
             <svg
