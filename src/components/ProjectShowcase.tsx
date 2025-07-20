@@ -35,14 +35,14 @@ const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
         {projects.map((project, idx) => (
           <div
             key={project.id}
-            className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen h-screen snap-start py-0 px-4 lg:px-0 border-b border-gray-100 bg-gradient-to-br from-white to-gray-50 overflow-hidden"
+            className="relative flex flex-col lg:flex-row items-center justify-center min-h-screen h-screen snap-start py-0 px-2 lg:px-0 border-b border-gray-100 bg-gradient-to-br from-white to-gray-50 overflow-hidden"
           >
             {/* Blob SVG */}
             <svg
               width="420"
               height="420"
               viewBox="0 0 200 200"
-              className="absolute right-[-8vw] top-1/2 -translate-y-1/2 z-0 hidden md:block"
+              className="absolute right-[-6vw] top-1/2 -translate-y-1/2 z-0 hidden md:block"
               aria-hidden="true"
             >
               <path
@@ -54,44 +54,44 @@ const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
             </svg>
 
             {/* Left: Text */}
-            <div className="flex-1 max-w-xl mb-12 lg:mb-0 lg:mr-16 z-10 flex flex-col justify-center">
+            <div className="flex-1 max-w-xl mb-4 lg:mb-0 lg:mr-8 z-10 flex flex-col justify-center">
               {/* All-caps label with icon */}
-              <div className="flex items-center mb-4">
+              <div className="flex items-center mb-2">
                 {project.labelIcon && <span className="mr-2 text-lg">{project.labelIcon}</span>}
                 <span className="uppercase tracking-widest text-xs font-bold text-gray-700/80">
                   {project.label || project.category}
                 </span>
               </div>
               {/* Headline */}
-              <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4 leading-tight">
                 {project.title}
               </h2>
               {/* Description */}
-              <p className="text-lg text-gray-700 mb-8">
+              <p className="text-base text-gray-700 mb-6">
                 {project.description}
               </p>
               {/* Stat/CTA if present */}
               {project.stat && (
-                <div className="mb-8">
-                  <span className="text-3xl font-extrabold" style={{ color: project.statColor || '#9321C6' }}>{project.stat}</span>
-                  <span className="ml-2 text-lg text-gray-700 font-medium">{project.statText}</span>
+                <div className="mb-6">
+                  <span className="text-2xl font-extrabold" style={{ color: project.statColor || '#9321C6' }}>{project.stat}</span>
+                  <span className="ml-2 text-base text-gray-700 font-medium">{project.statText}</span>
                 </div>
               )}
               <a
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-[#4A164B] font-semibold hover:text-[#9321C6] transition-colors text-lg"
+                className="inline-flex items-center text-[#4A164B] font-semibold hover:text-[#9321C6] transition-colors text-base"
               >
                 Learn more
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
             </div>
 
             {/* Right: Browser Wrapper with Image */}
-            <div className="flex-1 flex items-center justify-center w-full max-w-md z-10">
+            <div className="flex-1 flex items-center justify-center w-full max-w-lg z-10">
               <div className="w-full bg-gray-100 shadow-2xl border border-gray-200 overflow-hidden relative" style={{ aspectRatio: '16/10' }}>
                 {/* Browser Bar */}
                 <div className="flex items-center h-10 px-4" style={{ background: '#4A164B' }}>
@@ -102,7 +102,7 @@ const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
                 </div>
                 {/* Project Image */}
                 <div className="relative w-full h-[calc(100%-2.5rem)] bg-black flex items-center justify-center">
-                  <div className="w-[85%] h-[85%] overflow-hidden shadow-lg border border-gray-200 bg-white">
+                  <div className="w-[95%] h-[92%] overflow-hidden shadow-lg border border-gray-200 bg-white">
                     <Image
                       src={project.image}
                       alt={project.title}

@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import ProjectShowcase from "../components/ProjectShowcase";
 import Footer from "../components/Footer";
 import { FaTags, FaPrint, FaTabletAlt } from 'react-icons/fa';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -52,20 +53,35 @@ const projects = [
   },
 ];
 
-const CTASection = () => (
-  <section className="bg-gradient-to-r from-[#4A164B] to-[#9321C6] py-16">
-    <div className="max-w-3xl mx-auto px-6 text-center text-white">
-      <h2 className="text-4xl font-extrabold mb-4">Ready to build something amazing?</h2>
-      <p className="text-lg mb-8 opacity-90">
-        Start your journey with Zentra Holdings Ltd. today—let’s create the future of business technology together.
-      </p>
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#contact" className="px-8 py-4 bg-white text-[#4A164B] rounded-lg hover:bg-gray-100 transition-colors font-semibold text-lg">
-          Get Started
-        </a>
-        <a href="#zentraflow" className="px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-[#4A164B] transition-colors font-semibold text-lg">
-          Explore Our Solutions
-        </a>
+const SlackStyleCTA = () => (
+  <section className="py-16 bg-gradient-to-b from-[#D5F1FF] to-white">
+    <div className="max-w-5xl mx-auto px-4">
+      <div className="rounded-3xl shadow-xl bg-white/80 backdrop-blur-sm border border-gray-100 flex flex-col lg:flex-row items-center overflow-hidden">
+        {/* Left: Text */}
+        <div className="flex-1 p-8 lg:p-12">
+          <div className="uppercase text-xs font-bold text-[#4A164B] mb-2 tracking-widest">Zentra Holdings Ltd.</div>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+            There&rsquo;s a <span className="text-[#9321C6]">solution</span> for every business.
+          </h2>
+          <p className="text-lg text-gray-700 mb-8">
+            Build custom workflows, automate tasks, and collaborate with our team to create the perfect SaaS platform for your needs.
+          </p>
+          <a href="#contact" className="inline-block px-8 py-4 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold text-lg shadow">
+            Get Started
+          </a>
+        </div>
+        {/* Right: Mockup Image */}
+        <div className="flex-1 flex items-center justify-center p-6 lg:p-12">
+          <div className="w-full max-w-md">
+            <Image
+              src="/instalabel.png"
+              alt="Zentra App Mockup"
+              width={480}
+              height={320}
+              className="rounded-xl border border-gray-200 shadow-lg object-cover"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -77,7 +93,7 @@ export default function Home() {
       <Header />
       <Hero />
       <ProjectShowcase projects={projects} />
-      <CTASection />
+      <SlackStyleCTA />
       <Footer />
     </div>
   );
