@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import Image from 'next/image';
+import { motion, MotionProps } from 'framer-motion';
 
 interface Project {
   id: string;
@@ -20,7 +21,22 @@ interface Project {
 
 interface ProjectShowcaseProps {
   projects: Project[];
+  animateProps?: Partial<MotionProps>;
 }
+
+const defaultSectionAnim = {
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: 'easeOut' as const },
+  viewport: { once: true, amount: 0.3 },
+};
+
+const defaultItemAnim = (idx: number) => ({
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, delay: idx * 0.1, ease: 'easeOut' as const },
+  viewport: { once: true, amount: 0.2 },
+});
 
 const blobShapes = [
   'M44.6,-67.2C56.2,-59.2,62.7,-42.2,67.2,-25.7C71.7,-9.2,74.2,6.8,69.2,20.7C64.2,34.6,51.7,46.4,37.2,54.7C22.7,63,6.2,67.8,-10.2,70.2C-26.6,72.6,-42.9,72.6,-54.2,63.2C-65.5,53.8,-71.8,35,-72.2,17.2C-72.6,-0.6,-67.1,-17.4,-58.2,-28.2C-49.3,-39,-37.1,-43.8,-24.7,-51.2C-12.3,-58.6,0.3,-68.6,14.2,-73.2C28.1,-77.8,44.6,-67.2,44.6,-67.2Z',
@@ -28,14 +44,37 @@ const blobShapes = [
   'M47.2,-65.2C59.2,-56.2,62.7,-37.2,65.2,-19.7C67.7,-2.2,69.2,14.8,63.2,29.2C57.2,43.6,43.7,55.4,28.2,62.2C12.7,69,-4.8,70.8,-20.2,65.2C-35.6,59.6,-48.9,46.6,-57.2,31.2C-65.5,15.8,-68.8,-2,-62.2,-16.2C-55.6,-30.4,-39.1,-41,-23.2,-48.2C-7.3,-55.4,7.9,-59.2,23.2,-61.2C38.5,-63.2,54.2,-65.2,47.2,-65.2Z',
 ];
 
-const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
+const ProjectShowcase = ({ projects, animateProps }: ProjectShowcaseProps) => {
+  const sectionAnim = animateProps
+    ? {
+        ...animateProps,
+        transition: animateProps.transition
+          ? { ...animateProps.transition, ease: 'easeOut' as const }
+          : undefined,
+      }
+    : defaultSectionAnim;
   return (
-    <section className="w-full">
+    <motion.section
+      className="w-full"
+      {...sectionAnim}
+    >
       <div className="w-full flex flex-col snap-y snap-mandatory overflow-y-auto max-h-[300vh]">
         {projects.map((project, idx) => (
-          <div
+          <motion.div
             key={project.id}
             className="relative flex flex-col lg:flex-row items-center justify-center min-h-[60vh] snap-start py-0 px-2 lg:px-0 border-b border-gray-100 bg-gradient-to-br from-white to-gray-50 overflow-hidden"
+            {...(animateProps
+              ? {
+                  initial: animateProps.initial,
+                  whileInView: animateProps.whileInView,
+                  transition: {
+                    ...animateProps.transition,
+                    delay: idx * 0.07,
+                    ease: 'easeOut' as const,
+                  },
+                  viewport: animateProps.viewport,
+                }
+              : defaultItemAnim(idx))}
           >
             {/* Blob SVG */}
             <svg
@@ -83,7 +122,7 @@ const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-[#4A164B] font-semibold hover:text-[#9321C6] transition-colors text-base"
               >
-                Learn more
+                View Solutions
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -116,10 +155,10 @@ const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

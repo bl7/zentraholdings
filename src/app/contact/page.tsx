@@ -1,6 +1,42 @@
+'use client'
 import Image from "next/image";
+import { motion } from 'framer-motion';
+import { useState, useRef } from 'react';
 
 export default function Contact() {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string|null>(null);
+  const [error, setError] = useState<string|null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(null);
+    setError(null);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setSuccess('Thank you for reaching out! We have received your message and will get back to you soon.');
+        form.reset();
+      } else {
+        setError(result.error || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -27,7 +63,7 @@ export default function Contact() {
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit} ref={formRef}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -37,8 +73,9 @@ export default function Contact() {
                       type="text"
                       id="firstName"
                       name="firstName"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors text-black"
                       placeholder="John"
+                      required
                     />
                   </div>
                   <div>
@@ -49,8 +86,9 @@ export default function Contact() {
                       type="text"
                       id="lastName"
                       name="lastName"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors text-black"
                       placeholder="Doe"
+                      required
                     />
                   </div>
                 </div>
@@ -63,8 +101,9 @@ export default function Contact() {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors text-black"
                     placeholder="you@zentraholdings.com"
+                    required
                   />
                 </div>
 
@@ -76,7 +115,7 @@ export default function Contact() {
                     type="text"
                     id="company"
                     name="company"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors text-black"
                     placeholder="Your Company"
                   />
                 </div>
@@ -88,14 +127,15 @@ export default function Contact() {
                   <select
                     id="subject"
                     name="subject"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors text-black"
+                    required
                   >
                     <option value="">Select a subject</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="sales">Sales & Pricing</option>
-                    <option value="support">Technical Support</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="other">Other</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Sales & Pricing">Sales & Pricing</option>
+                    <option value="Technical Support">Technical Support</option>
+                    <option value="Partnership">Partnership</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
@@ -107,17 +147,21 @@ export default function Contact() {
                     id="message"
                     name="message"
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4A164B] focus:border-transparent transition-colors resize-none text-black"
                     placeholder="Tell us about your project or how we can help..."
+                    required
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold text-lg"
+                  className="w-full px-8 py-4 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold text-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                  disabled={loading}
                 >
-                  Send Message
+                  {loading ? 'Sending...' : 'Send Message'}
                 </button>
+                {success && <div className="text-green-600 font-medium text-center mt-2">{success}</div>}
+                {error && <div className="text-red-600 font-medium text-center mt-2">{error}</div>}
               </form>
             </div>
 
@@ -243,7 +287,13 @@ export default function Contact() {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-gray-50">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.1 }}
+        className="py-20 bg-gray-50"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Visit Our Office</h2>
@@ -265,7 +315,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 } 

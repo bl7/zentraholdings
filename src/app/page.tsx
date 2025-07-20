@@ -1,8 +1,11 @@
+'use client'
+
 import Hero from "../components/Hero";
 import ProjectShowcase from "../components/ProjectShowcase";
 import SlackInspiredSection from '../components/SlackInspiredSection';
 import { FaTags, FaPrint, FaTabletAlt } from 'react-icons/fa';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -53,14 +56,20 @@ const projects = [
 ];
 
 const SlackStyleCTA = () => (
-  <section className="py-16 bg-gradient-to-b from-[#D5F1FF] to-white">
+  <motion.section
+    className="py-16 bg-gradient-to-b from-[#D5F1FF] to-white"
+    initial={{ opacity: 0, y: 32 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: 'easeOut' }}
+    viewport={{ once: true, amount: 0.3 }}
+  >
     <div className="max-w-5xl mx-auto px-4">
       <div className="rounded-3xl shadow-xl bg-white/80 backdrop-blur-sm border border-gray-100 flex flex-col lg:flex-row items-center overflow-hidden">
         {/* Left: Text */}
         <div className="flex-1 p-8 lg:p-12">
           <div className="uppercase text-xs font-bold text-[#4A164B] mb-2 tracking-widest">Zentra Holdings Ltd.</div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-            There&rsquo;s a <span className="text-[#9321C6]">solution</span> for every business.
+            There&apos;s a <span className="text-[#9321C6]">solution</span> for every business.
           </h2>
           <p className="text-lg text-gray-700 mb-8">
             Build custom workflows, automate tasks, and collaborate with our team to create the perfect SaaS platform for your needs.
@@ -83,17 +92,45 @@ const SlackStyleCTA = () => (
         </div>
       </div>
     </div>
-  </section>
+  </motion.section>
 );
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      {/* <Header /> */}
+   
       <Hero />
       <SlackInspiredSection />
-      <ProjectShowcase projects={projects} />
+      <ProjectShowcase projects={projects} animateProps={{ initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, transition: { duration: 0.3, ease: 'easeOut' as const }, viewport: { once: true, amount: 0.1 } }} />
       <SlackStyleCTA />
+      {/* FAQ Section for SEO */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">What is Zentra Holdings?</h3>
+              <p className="text-gray-700">Zentra Holdings is a leading provider of SaaS software solutions, specializing in automation, printing, and digital transformation for businesses of all sizes.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">What is InstaLabel?</h3>
+              <p className="text-gray-700">InstaLabel is Zentra&apos;s innovative SaaS product for professional label printing, compliance, and automation in the food and retail industry.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">What is PrintBridge?</h3>
+              <p className="text-gray-700">PrintBridge by Zentra is a seamless print integration solution that connects your SaaS platform to a wide range of printers for efficient, reliable label and document printing.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">Why choose Zentra for SaaS solutions?</h3>
+              <p className="text-gray-700">Zentra offers secure, scalable, and innovative SaaS solutions tailored to your business needs, including InstaLabel and PrintBridge for automation and printing.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">How can I get started with Zentra?</h3>
+              <p className="text-gray-700">Contact us to discuss your requirements and discover how Zentra&apos;s software solutions, including InstaLabel and PrintBridge, can help your business grow.</p>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* <Footer /> */}
     </div>
   );

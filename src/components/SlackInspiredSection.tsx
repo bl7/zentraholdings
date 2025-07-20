@@ -1,7 +1,7 @@
-"use client";
+'use client'
 import React from "react";
 import { motion } from "framer-motion";
-import { FaWifi, FaPrint, FaTabletAlt, FaTags } from "react-icons/fa";
+import { FaWifi, FaTabletAlt, FaTags } from "react-icons/fa";
 import Image from "next/image";
 
 const features = [
@@ -10,17 +10,13 @@ const features = [
   { icon: <FaTabletAlt className="h-5 w-5 text-[#21C6A6]" />, label: "TapTab" },
 ];
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.3 },
-  transition: { duration: 0.8 },
-};
-
 const SlackInspiredSection = () => (
   <motion.section
+    initial={{ opacity: 0, y: 32 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: 'easeOut' }}
+    viewport={{ once: true, amount: 0.3 }}
     className="relative flex flex-col items-center justify-center py-6 bg-gradient-to-br from-gray-50 to-white px-4 sm:px-6 md:px-12 lg:px-16"
-    {...fadeInUp}
   >
     {/* Browser/Mockup Window */}
     <div className="relative z-10 w-full max-w-4xl mx-auto rounded-2xl shadow-2xl border border-gray-200 bg-white overflow-hidden mb-2">

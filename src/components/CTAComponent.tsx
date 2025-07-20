@@ -1,9 +1,17 @@
+'use client'
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const CTAComponent = () => {
   return (
-    <section className='container mx-auto'>
-    <div className=" px-8 py-16 bg-gradient-to-b from-[#D3F1FF] to-white">
+    <motion.section
+      className='container mx-auto'
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      viewport={{ once: true, amount: 0.1 }}
+    >
+      <div className=" px-8 py-16 bg-gradient-to-b from-[#D3F1FF] to-white">
       <div className="relative flex max-h-[50vh] w-full  overflow-hidden ">
       {/* Left Panel - Agentforce Promotion */}
       <div className="flex-1 flex items-center justify-center p-6">
@@ -31,7 +39,7 @@ const CTAComponent = () => {
           
           {/* Learn More Button */}
           <a href="/about" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition-colors text-sm">
-            <span>Learn more</span>
+            <span>View Solutions</span>
             <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
@@ -43,7 +51,7 @@ const CTAComponent = () => {
         
       
     </div>
-    </section>
+    </motion.section>
   );
 };
 

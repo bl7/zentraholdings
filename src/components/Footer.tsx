@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -10,7 +9,6 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <Image src="/logo.png" alt="Zentra Holdings Ltd. Logo" width={48} height={48} />
               <span className="text-xl font-bold">Zentra Holdings Ltd.</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">

@@ -1,4 +1,7 @@
+'use client'
+
 import Image from "next/image";
+import { motion } from 'framer-motion';
 
 export default function About() {
   return (
@@ -17,8 +20,12 @@ export default function About() {
               Zentra Holdings Ltd. is a technology company dedicated to empowering organizations with innovative automation, mobile, and print solutions. Our mission is to help businesses streamline operations, connect teams, and accelerate digital transformation with secure, scalable platforms.
             </p>
           </div>
+        </div>
+      </section>
 
-          {/* Stats */}
+      {/* Stats */}
+      <section>
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-16">
             <div className="text-center">
               <div className="text-4xl font-bold text-[#4A164B] mb-2">2012</div>
@@ -41,7 +48,13 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.1 }}
+        className="py-20"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Mission */}
@@ -93,10 +106,16 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Values */}
-      <section className="py-20 bg-gray-50">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.1 }}
+        className="py-20 bg-gray-50"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Core Values</h2>
@@ -146,10 +165,16 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Team */}
-      <section className="py-20">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.1 }}
+        className="py-20"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Meet Our Leadership</h2>
@@ -196,10 +221,16 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#4A164B] to-[#9321C6]">
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.1 }}
+        className="py-20 bg-gradient-to-r from-[#4A164B] to-[#9321C6]"
+      >
         <div className="max-w-4xl mx-auto px-6 text-center text-white">
           <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
           <p className="text-xl mb-8 opacity-90">
@@ -207,14 +238,49 @@ export default function About() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/contact" className="px-8 py-4 bg-white text-[#4A164B] rounded-lg hover:bg-gray-100 transition-colors font-semibold text-lg">
-              Get in Touch
+              Contact Us
             </a>
             <a href="#zentraflow" className="px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-[#4A164B] transition-colors font-semibold text-lg">
-              Explore ZentraFlow
+              View Solutions
             </a>
           </div>
         </div>
-      </section>
+      </motion.section>
+
+      {/* FAQ */}
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeOut' as const }}
+        viewport={{ once: true, amount: 0.1 }}
+        className="py-20 bg-white"
+      >
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">What is Zentra Holdings?</h3>
+              <p className="text-gray-700">Zentra Holdings is a leading provider of SaaS software solutions, specializing in automation, printing, and digital transformation for businesses of all sizes.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">What is InstaLabel?</h3>
+              <p className="text-gray-700">InstaLabel is Zentra&apos;s innovative SaaS product for professional label printing, compliance, and automation in the food and retail industry.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">What is PrintBridge?</h3>
+              <p className="text-gray-700">PrintBridge by Zentra is a seamless print integration solution that connects your SaaS platform to a wide range of printers for efficient, reliable label and document printing.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">Why choose Zentra for SaaS solutions?</h3>
+              <p className="text-gray-700">Zentra offers secure, scalable, and innovative SaaS solutions tailored to your business needs, including InstaLabel and PrintBridge for automation and printing.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">How can I get started with Zentra?</h3>
+              <p className="text-gray-700">Contact us to discuss your requirements and discover how Zentra&apos;s software solutions, including InstaLabel and PrintBridge, can help your business grow.</p>
+            </div>
+          </div>
+        </div>
+      </motion.section>
     </div>
   );
 } 

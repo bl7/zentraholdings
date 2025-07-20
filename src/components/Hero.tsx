@@ -20,10 +20,10 @@ const Hero = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="#zentraflow" className="px-8 py-4 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-medium text-lg">
-              Explore Our Solutions
+              View Solutions
             </a>
             <a href="#contact" className="px-8 py-4 border border-[#4A164B] text-[#4A164B] rounded-lg hover:bg-[#4A164B] hover:text-white transition-colors font-medium text-lg">
-              Start a Conversation
+              Contact Us
             </a>
           </div>
          

@@ -52,10 +52,10 @@ const Header = () => {
         </nav>
         <div className="hidden md:flex items-center space-x-4">
           <Link href="/contact" className="px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
-            TALK TO SALES
+            Contact Us
           </Link>
-          <Link href="/contact" className="px-6 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
-            GET STARTED
+          <Link href="/about" className="px-6 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
+            View Solutions
           </Link>
         </div>
         <button
@@ -90,10 +90,10 @@ const Header = () => {
             ))}
             <div className="pt-4 border-t border-gray-100">
               <Link href="/contact" className="w-full px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors text-left rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
-                TALK TO SALES
+                Contact Us
               </Link>
-              <Link href="/contact" className="w-full mt-2 px-4 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
-                GET STARTED
+              <Link href="/about" className="w-full mt-2 px-4 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
+                View Solutions
               </Link>
             </div>
           </nav>
@@ -132,10 +132,10 @@ const Header = () => {
             </nav>
             <div className="hidden md:flex items-center space-x-4">
               <Link href="/contact" className="px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
-                TALK TO SALES
+                Contact Us
               </Link>
-              <Link href="/contact" className="px-6 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
-                GET STARTED
+              <Link href="/about" className="px-6 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
+                View Solutions
               </Link>
             </div>
             <button
@@ -170,10 +170,10 @@ const Header = () => {
                 ))}
                 <div className="pt-4 border-t border-gray-100">
                   <Link href="/contact" className="w-full px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors text-left rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
-                    TALK TO SALES
+                    Contact Us
                   </Link>
-                  <Link href="/contact" className="w-full mt-2 px-4 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
-                    GET STARTED
+                  <Link href="/about" className="w-full mt-2 px-4 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
+                    View Solutions
                   </Link>
                 </div>
               </nav>
