@@ -1,103 +1,84 @@
-import Image from "next/image";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import ProjectShowcase from "../components/ProjectShowcase";
+import Footer from "../components/Footer";
+import { FaTags, FaPrint, FaTabletAlt } from 'react-icons/fa';
+
+const projects = [
+  {
+    id: "1",
+    category: "Label Printing",
+    label: "INSTALABEL",
+    labelIcon: <FaTags />,
+    title: "InstaLabel",
+    description: "Print professional kitchen labels (including PPDS and Natasha’s Law) with automatic date calculations, allergen warnings, and storage instructions. Works from any device—USB printer, Sunmi, or more. Perfect for any kitchen that needs to comply with food safety laws—from restaurants to delis to food trucks.",
+    url: "https://www.instalabel.co",
+    image: "/instalabel.png",
+    blobColor: "#4A164B",
+    stat: "Any Label, Any Device",
+    statColor: "#9321C6",
+    statText: "Professional, Compliant, Easy",
+    icon: <FaTags />,
+  },
+  {
+    id: "2",
+    category: "Print Integration",
+    label: "PRINTBRIDGE",
+    labelIcon: <FaPrint />,
+    title: "PrintBridge",
+    description: "Zentra supports a wide range of USB-connected thermal label printers — no special hardware required. As long as your printer is installed with a system driver, Zentra will detect it automatically and deliver pixel-perfect prints every time. Whether you're printing 2-inch prep labels or large PPDS labels, Zentra gets the size right — no matter the brand.",
+    url: "#printbridge",
+    image: "/printbridge.png",
+    blobColor: "#21C6A6",
+    stat: "Seamless compatibility",
+    statColor: "#21C6A6",
+    statText: "out of the box.",
+    icon: <FaPrint />,
+  },
+  {
+    id: "3",
+    category: "QR Ordering App",
+    label: "TAPTAB",
+    labelIcon: <FaTabletAlt />,
+    title: "TapTab",
+    description: "TapTab is an app that allows customers to place orders by scanning QR catalogues from their phone, staffs can later continue the order taking adding on it, can take new orders as well, runs on tablet, prints receipts for new orders.",
+    url: "#taptab",
+    image: "/placeholder.png",
+    blobColor: "#9321C6",
+    stat: "Ongoing",
+    statColor: "#9321C6",
+    statText: "Tablet-first QR ordering",
+    icon: <FaTabletAlt />,
+  },
+];
+
+const CTASection = () => (
+  <section className="bg-gradient-to-r from-[#4A164B] to-[#9321C6] py-16">
+    <div className="max-w-3xl mx-auto px-6 text-center text-white">
+      <h2 className="text-4xl font-extrabold mb-4">Ready to build something amazing?</h2>
+      <p className="text-lg mb-8 opacity-90">
+        Start your journey with Zentra Holdings Ltd. today—let’s create the future of business technology together.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact" className="px-8 py-4 bg-white text-[#4A164B] rounded-lg hover:bg-gray-100 transition-colors font-semibold text-lg">
+          Get Started
+        </a>
+        <a href="#zentraflow" className="px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-[#4A164B] transition-colors font-semibold text-lg">
+          Explore Our Solutions
+        </a>
+      </div>
+    </div>
+  </section>
+);
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div className="min-h-screen bg-white">
+      <Header />
+      <Hero />
+      <ProjectShowcase projects={projects} />
+      <CTASection />
+      <Footer />
     </div>
   );
 }
