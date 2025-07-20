@@ -51,12 +51,12 @@ const Header = () => {
           ))}
         </nav>
         <div className="hidden md:flex items-center space-x-4">
-          <button className="px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
+          <Link href="/contact" className="px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
             TALK TO SALES
-          </button>
-          <button className="px-6 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
+          </Link>
+          <Link href="/contact" className="px-6 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
             GET STARTED
-          </button>
+          </Link>
         </div>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -89,12 +89,12 @@ const Header = () => {
               </Link>
             ))}
             <div className="pt-4 border-t border-gray-100">
-              <button className="w-full px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors text-left rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
+              <Link href="/contact" className="w-full px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors text-left rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
                 TALK TO SALES
-              </button>
-              <button className="w-full mt-2 px-4 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
+              </Link>
+              <Link href="/contact" className="w-full mt-2 px-4 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
                 GET STARTED
-              </button>
+              </Link>
             </div>
           </nav>
         </div>
@@ -131,12 +131,12 @@ const Header = () => {
               ))}
             </nav>
             <div className="hidden md:flex items-center space-x-4">
-              <button className="px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
+              <Link href="/contact" className="px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
                 TALK TO SALES
-              </button>
-              <button className="px-6 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
+              </Link>
+              <Link href="/contact" className="px-6 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
                 GET STARTED
-              </button>
+              </Link>
             </div>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -169,12 +169,12 @@ const Header = () => {
                   </Link>
                 ))}
                 <div className="pt-4 border-t border-gray-100">
-                  <button className="w-full px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors text-left rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
+                  <Link href="/contact" className="w-full px-4 py-2 text-[#4A164B] font-semibold hover:text-[#3a1239] transition-colors text-left rounded-lg border border-[#4A164B]/30 bg-white hover:bg-[#4A164B]/10 shadow-sm">
                     TALK TO SALES
-                  </button>
-                  <button className="w-full mt-2 px-4 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
+                  </Link>
+                  <Link href="/contact" className="w-full mt-2 px-4 py-2 bg-[#4A164B] text-white rounded-lg hover:bg-[#3a1239] transition-colors font-semibold shadow-lg">
                     GET STARTED
-                  </button>
+                  </Link>
                 </div>
               </nav>
             </div>

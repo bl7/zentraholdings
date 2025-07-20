@@ -1,11 +1,8 @@
-import Header from "../../components/Header";
 import Image from "next/image";
 
 export default function About() {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
