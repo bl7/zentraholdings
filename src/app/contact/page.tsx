@@ -59,12 +59,8 @@ export default function Contact() {
             <div className="flex justify-center mb-8">
               <Image src="/logo.png" alt="Zentra Holdings Ltd. Logo" width={100} height={100} priority />
             </div>
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              Contact Zentra
-            </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Let’s build something that evolves your business. Whether you’re interested in TapTab, InstaLabel, PrintBridge, or want to co-create a new product, we’re here to help.
-            </p>
+            <h1 className="text-5xl font-bold text-gray-900 mb-6">Contact Zentra</h1>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">Let’s build something that evolves your business. Whether you’re interested in TapTab, InstaLabel, PrintBridge, or want to co-create a new product, we’re here to help.</p>
           </div>
         </div>
       </section>
@@ -75,8 +71,8 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
-              <p className="mb-6 text-gray-700">Tell us about your project or question—our team will get back to you quickly.</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">Tell us about your project or question—our team will get back to you quickly.</p>
               <form className="space-y-6" onSubmit={handleSubmit} ref={formRef}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -273,7 +269,7 @@ export default function Contact() {
 
               {/* FAQ Section */}
               <div className="mt-12">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
+                <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
                 <div className="space-y-4">
                   {faqs.map((faq, idx) => (
                     <div key={faq.question} className="border border-gray-200 rounded-lg">

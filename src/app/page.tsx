@@ -6,6 +6,7 @@ import SlackInspiredSection from '../components/SlackInspiredSection';
 import { FaTags, FaPrint, FaTabletAlt } from 'react-icons/fa';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import FAQ from '../components/FAQ';
 
 const projects = [
   {
@@ -136,29 +137,29 @@ export default function Home() {
       {/* FAQ Section for SEO */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-          <div className="space-y-6">
-            <div>
-              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">What is Zentra Holdings?</h3>
-              <p className="text-gray-700">Zentra Holdings is a leading provider of SaaS software solutions, specializing in automation, printing, and digital transformation for businesses of all sizes.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">What is InstaLabel?</h3>
-              <p className="text-gray-700">InstaLabel is Zentra&apos;s innovative SaaS product for professional label printing, compliance, and automation in the food and retail industry.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">What is PrintBridge?</h3>
-              <p className="text-gray-700">PrintBridge by Zentra is a seamless print integration solution that connects your SaaS platform to a wide range of printers for efficient, reliable label and document printing.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">Why choose Zentra for SaaS solutions?</h3>
-              <p className="text-gray-700">Zentra offers secure, scalable, and innovative SaaS solutions tailored to your business needs, including InstaLabel and PrintBridge for automation and printing.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg text-[#4A164B] mb-2">How can I get started with Zentra?</h3>
-              <p className="text-gray-700">Contact us to discuss your requirements and discover how Zentra&apos;s software solutions, including InstaLabel and PrintBridge, can help your business grow.</p>
-            </div>
-          </div>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+          <FAQ faqs={[
+            {
+              question: 'What is Zentra Holdings?',
+              answer: 'Zentra Holdings is a leading provider of SaaS software solutions, specializing in automation, printing, and digital transformation for businesses of all sizes.'
+            },
+            {
+              question: 'What is InstaLabel?',
+              answer: 'InstaLabel is Zentra\'s innovative SaaS product for professional label printing, compliance, and automation in the food and retail industry.'
+            },
+            {
+              question: 'What is PrintBridge?',
+              answer: 'PrintBridge by Zentra is a seamless print integration solution that connects your SaaS platform to a wide range of printers for efficient, reliable label and document printing.'
+            },
+            {
+              question: 'Why choose Zentra for SaaS solutions?',
+              answer: 'Zentra offers secure, scalable, and innovative SaaS solutions tailored to your business needs, including InstaLabel and PrintBridge for automation and printing.'
+            },
+            {
+              question: 'How can I get started with Zentra?',
+              answer: 'Contact us to discuss your requirements and discover how Zentra\'s software solutions, including InstaLabel and PrintBridge, can help your business grow.'
+            }
+          ]} />
         </div>
       </section>
       {/* <Footer /> */}
