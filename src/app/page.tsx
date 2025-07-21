@@ -107,29 +107,29 @@ export default function Home() {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
           {/* Our Products */}
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Products</h2>
-            <ul className="space-y-4">
-              <li><strong>TapTab:</strong> QR-powered menus and ordering for modern hospitality.</li>
-              <li><strong>InstaLabel:</strong> Effortless kitchen labelling and food safety compliance.</li>
-              <li><strong>PrintBridge:</strong> Seamless, silent label printing for any workflow.</li>
+          <div className="bg-white rounded-2xl shadow p-8 md:p-10 border border-gray-100">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Our Products</h2>
+            <ul className="space-y-5 text-base md:text-lg text-gray-900 leading-relaxed">
+              <li><span className="font-semibold">TapTab:</span> QR-powered menus and ordering for modern hospitality.</li>
+              <li><span className="font-semibold">InstaLabel:</span> Effortless kitchen labelling and food safety compliance.</li>
+              <li><span className="font-semibold">PrintBridge:</span> Seamless, silent label printing for any workflow.</li>
             </ul>
           </div>
           {/* Build With Us */}
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Build With Us</h2>
-            <p>Partner with Zentra to co-create new software products.<br />We bring your ideas to life—fast, reliable, and founder-focused.</p>
+          <div className="bg-white rounded-2xl shadow p-8 md:p-10 border border-gray-100 flex flex-col justify-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Build With Us</h2>
+            <p className="text-base md:text-lg text-gray-900 leading-relaxed">Partner with Zentra to co-create new software products.<br />We bring your ideas to life—fast, reliable, and founder-focused.</p>
           </div>
         </div>
       </section>
       {/* SECTION 2: Why Choose Zentra */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Choose Zentra</h2>
-          <ul className="space-y-6 text-lg text-gray-700">
-            <li><strong>We build for ourselves—and for you.</strong> Our own SaaS products prove our approach works in the real world.</li>
-            <li><strong>Speed and technical honesty.</strong> We move fast, communicate clearly, and deliver what we promise.</li>
-            <li><strong>True partnership, not just a service.</strong> We collaborate closely, sharing our expertise and infrastructure to help you succeed.</li>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10">Why Choose Zentra</h2>
+          <ul className="space-y-8 text-lg md:text-xl text-gray-900 leading-relaxed">
+            <li><span className="font-semibold">We build for ourselves—and for you.</span> Our own SaaS products prove our approach works in the real world.</li>
+            <li><span className="font-semibold">Speed and technical honesty.</span> We move fast, communicate clearly, and deliver what we promise.</li>
+            <li><span className="font-semibold">True partnership, not just a service.</span> We collaborate closely, sharing our expertise and infrastructure to help you succeed.</li>
           </ul>
         </div>
       </section>

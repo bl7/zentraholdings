@@ -16,7 +16,7 @@ export default function About() {
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
               About Zentra
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-gray-900 max-w-3xl mx-auto mb-8 leading-relaxed">
               We started Zentra by building tools we needed—solutions for real problems in hospitality and retail. As our products grew, so did our vision: to become a platform company and venture studio, creating SaaS products that make businesses more efficient, compliant, and connected.
             </p>
           </div>
@@ -25,35 +25,35 @@ export default function About() {
 
       {/* Mission */}
       <section className="py-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Mission</h2>
-        <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Mission</h2>
+        <p className="text-lg md:text-xl text-gray-900 mb-6 leading-relaxed">
           We build software that’s practical, reliable, and ready for the real world. Our mission is to empower founders and businesses with the tools and infrastructure they need to evolve.
         </p>
       </section>
 
       {/* Vision */}
       <section className="py-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Vision</h2>
-        <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Vision</h2>
+        <p className="text-lg md:text-xl text-gray-900 mb-6 leading-relaxed">
           To be the go-to partner for vertical SaaS—where our own products and our clients’ ideas thrive side by side.
         </p>
       </section>
 
       {/* Values */}
       <section className="py-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Values</h2>
-        <ul className="space-y-4 text-lg text-gray-700">
-          <li><strong>Built-for-real:</strong> We solve real problems, not just theoretical ones.</li>
-          <li><strong>Product infrastructure:</strong> We create solid foundations for growth and scale.</li>
-          <li><strong>Technical honesty:</strong> We’re transparent about what works, what doesn’t, and why.</li>
-          <li><strong>Client partnership:</strong> We treat your goals as our own, working together every step of the way.</li>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Values</h2>
+        <ul className="space-y-4 text-lg md:text-xl text-gray-900 leading-relaxed">
+          <li><span className="font-semibold">Built-for-real:</span> We solve real problems, not just theoretical ones.</li>
+          <li><span className="font-semibold">Product infrastructure:</span> We create solid foundations for growth and scale.</li>
+          <li><span className="font-semibold">Technical honesty:</span> We’re transparent about what works, what doesn’t, and why.</li>
+          <li><span className="font-semibold">Client partnership:</span> We treat your goals as our own, working together every step of the way.</li>
         </ul>
       </section>
 
       {/* What We Offer */}
       <section className="py-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">What We Offer</h2>
-        <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What We Offer</h2>
+        <p className="text-lg md:text-xl text-gray-900 mb-6 leading-relaxed">
           We’re both creators and partners: we launch and operate our own SaaS products, and we help founders and businesses build new software under the Zentra brand.
         </p>
       </section>
