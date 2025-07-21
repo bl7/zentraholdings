@@ -47,10 +47,10 @@ export default function Contact() {
               <Image src="/logo.png" alt="Zentra Holdings Ltd. Logo" width={100} height={100} priority />
             </div>
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              Contact Zentra Holdings Ltd.
+              Contact Zentra
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Ready to modernize your business? Reach out to Zentra Holdings Ltd. for partnership, support, or to learn more about our automation, mobile, and print solutions.
+              Let’s build something that evolves your business. Whether you’re interested in TapTab, InstaLabel, PrintBridge, or want to co-create a new product, we’re here to help.
             </p>
           </div>
         </div>
@@ -63,6 +63,7 @@ export default function Contact() {
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
+              <p className="mb-6 text-gray-700">Tell us about your project or question—our team will get back to you quickly.</p>
               <form className="space-y-6" onSubmit={handleSubmit} ref={formRef}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -262,21 +263,15 @@ export default function Contact() {
                 <h3 className="text-xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
                 <div className="space-y-4">
                   <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">What does Zentra Holdings Ltd. do?</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2">Can you build only our product idea?</h4>
                     <p className="text-gray-700 text-sm">
-                      We provide automation, mobile, and print solutions to help organizations modernize, connect, and grow.
+                      Yes! We partner with founders and businesses to build custom software, whether it’s a new venture or a single product.
                     </p>
                   </div>
                   <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">Where are you located?</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2">What kind of support do you offer after launch?</h4>
                     <p className="text-gray-700 text-sm">
-                      Our headquarters are in London, UK, and we serve clients worldwide.
-                    </p>
-                  </div>
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">How can I get started?</h4>
-                    <p className="text-gray-700 text-sm">
-                      Contact us using the form or email hello@zentraholdings.com to discuss your needs and schedule a consultation.
+                      We provide ongoing support, updates, and guidance to ensure your product keeps evolving and growing.
                     </p>
                   </div>
                 </div>
