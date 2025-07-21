@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion, MotionProps } from 'framer-motion';
+import { FaWifi, FaTabletAlt, FaTags } from "react-icons/fa";
 
 interface Project {
   id: string;
@@ -43,7 +44,11 @@ const blobShapes = [
   'M54.2,-66.2C67.2,-56.2,71.7,-34.6,70.2,-15.7C68.7,3.2,61.2,19.4,51.2,32.2C41.2,45,28.7,54.4,14.2,60.2C-0.3,66,-16.8,68.2,-32.2,62.2C-47.6,56.2,-61.9,42,-67.2,25.7C-72.5,9.4,-68.8,-9.1,-61.2,-25.7C-53.6,-42.3,-42.1,-57.1,-27.2,-66.2C-12.3,-75.3,6,-78.6,22.7,-74.2C39.4,-69.8,54.2,-66.2,54.2,-66.2Z',
   'M47.2,-65.2C59.2,-56.2,62.7,-37.2,65.2,-19.7C67.7,-2.2,69.2,14.8,63.2,29.2C57.2,43.6,43.7,55.4,28.2,62.2C12.7,69,-4.8,70.8,-20.2,65.2C-35.6,59.6,-48.9,46.6,-57.2,31.2C-65.5,15.8,-68.8,-2,-62.2,-16.2C-55.6,-30.4,-39.1,-41,-23.2,-48.2C-7.3,-55.4,7.9,-59.2,23.2,-61.2C38.5,-63.2,54.2,-65.2,47.2,-65.2Z',
 ];
-
+const features = [
+  { icon: <FaTags className="h-5 w-5 text-[#9321C6]" />, label: "InstaLabel" },
+  { icon: <FaWifi className="h-5 w-5 text-[#4A164B]" />, label: "PrintBridge" },
+  { icon: <FaTabletAlt className="h-5 w-5 text-[#21C6A6]" />, label: "TapTab" },
+];
 const ProjectShowcase = ({ projects, animateProps }: ProjectShowcaseProps) => {
   const sectionAnim = animateProps
     ? {
@@ -58,6 +63,27 @@ const ProjectShowcase = ({ projects, animateProps }: ProjectShowcaseProps) => {
       className="w-full"
       {...sectionAnim}
     >
+       <div className="text-center max-w-2xl mx-auto mb-4">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
+      Products built with purpose.
+
+
+      </h2>
+      <p className="text-lg text-gray-700">
+      Every product we touch is shaped by shared vision, rigorous thinking, and relentless iteration. Explore what we’ve launched — and what you could build next.
+
+
+      </p>
+    </div>
+    {/* Feature Icons/Labels */}
+    <div className="flex flex-wrap justify-center gap-6 mt-0">
+      {features.map((f) => (
+        <div key={f.label} className="flex items-center gap-2 text-sm font-semibold text-gray-700 bg-white rounded-full px-4 py-2 shadow border border-gray-100">
+          {f.icon}
+          <span>{f.label}</span>
+        </div>
+      ))}
+    </div>
       <div className="w-full flex flex-col snap-y snap-mandatory overflow-y-auto max-h-[300vh]">
         {projects.map((project, idx) => (
           <motion.div

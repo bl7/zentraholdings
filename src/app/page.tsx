@@ -58,14 +58,14 @@ const projects = [
 
 const SlackStyleCTA = () => (
   <motion.section
-    className="py-16 bg-gradient-to-b from-[#D5F1FF] to-white"
+    className="py-16"
     initial={{ opacity: 0, y: 32 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, ease: 'easeOut' }}
     viewport={{ once: true, amount: 0.3 }}
   >
-    <div className="max-w-5xl mx-auto px-4">
-      <div className="rounded-3xl shadow-xl bg-white/80 backdrop-blur-sm border border-gray-100 flex flex-col lg:flex-row items-center overflow-hidden">
+    <div className="max-w-5xl mx-auto px-4 ">
+      <div className="rounded-lg shadow-xl bg-white/80 backdrop-blur-sm border border-gray-100 flex flex-col lg:flex-row items-center overflow-hidden bg-gradient-to-b from-[#D5F1FF] to-white">
         {/* Left: Text */}
         <div className="flex-1 p-8 lg:p-12">
           <div className="uppercase text-xs font-bold text-[#4A164B] mb-2 tracking-widest">Zentra Holdings Ltd.</div>
@@ -87,7 +87,7 @@ const SlackStyleCTA = () => (
               alt="Zentra App Mockup"
               width={480}
               height={320}
-              className="rounded-xl border border-gray-200 shadow-lg object-cover"
+              className="rounded-lg border border-gray-200 shadow-lg object-cover"
             />
           </div>
         </div>
@@ -99,70 +99,75 @@ const SlackStyleCTA = () => (
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-   
       <Hero />
-      <SlackInspiredSection />
-      <ProjectShowcase projects={projects} animateProps={{ initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, transition: { duration: 0.3, ease: 'easeOut' as const }, viewport: { once: true, amount: 0.1 } }} />
-      <SlackStyleCTA />
-      {/* SECTION 1: Our Products & Build With Us (two columns) */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-          {/* Our Products */}
-          <div className="bg-white rounded-2xl shadow p-8 md:p-10 border border-gray-100">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Our Products</h2>
-            <ul className="space-y-5 text-base md:text-lg text-gray-900 leading-relaxed">
-              <li><span className="font-semibold">TapTab:</span> QR-powered menus and ordering for modern hospitality.</li>
-              <li><span className="font-semibold">InstaLabel:</span> Effortless kitchen labelling and food safety compliance.</li>
-              <li><span className="font-semibold">PrintBridge:</span> Seamless, silent label printing for any workflow.</li>
-            </ul>
-          </div>
-          {/* Build With Us */}
-          <div className="bg-white rounded-2xl shadow p-8 md:p-10 border border-gray-100 flex flex-col justify-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Build With Us</h2>
-            <p className="text-base md:text-lg text-gray-900 leading-relaxed">Partner with Zentra to co-create new software products.<br />We bring your ideas to life—fast, reliable, and founder-focused.</p>
-          </div>
-        </div>
-      </section>
-      {/* SECTION 2: Why Choose Zentra */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10">Why Choose Zentra</h2>
-          <ul className="space-y-8 text-lg md:text-xl text-gray-900 leading-relaxed">
-            <li><span className="font-semibold">We build for ourselves—and for you.</span> Our own SaaS products prove our approach works in the real world.</li>
-            <li><span className="font-semibold">Speed and technical honesty.</span> We move fast, communicate clearly, and deliver what we promise.</li>
-            <li><span className="font-semibold">True partnership, not just a service.</span> We collaborate closely, sharing our expertise and infrastructure to help you succeed.</li>
-          </ul>
-        </div>
-      </section>
-      {/* FAQ Section for SEO */}
-      <section className="py-20 bg-white">
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <SlackInspiredSection />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <ProjectShowcase
+          projects={projects}
+          animateProps={{ initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, transition: { duration: 0.3, ease: 'easeOut' as const }, viewport: { once: true, amount: 0.1 } }}
+        />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <SlackStyleCTA />
+      </motion.div>
+      <motion.section
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.3 }}
+        className="py-20 bg-white"
+      >
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
           <FAQ faqs={[
             {
-              question: 'What is Zentra Holdings?',
-              answer: 'Zentra Holdings is a leading provider of SaaS software solutions, specializing in automation, printing, and digital transformation for businesses of all sizes.'
+              question: 'What types of software do you build?',
+              answer: 'We specialize in business-critical tools — from custom SaaS platforms to label printing systems, mobile apps, dashboards, and more. If your team needs it, we can build it.'
             },
             {
-              question: 'What is InstaLabel?',
-              answer: 'InstaLabel is Zentra\'s innovative SaaS product for professional label printing, compliance, and automation in the food and retail industry.'
+              question: 'Can Zentra help with just one part of our project?',
+              answer: 'Absolutely. Whether it’s strategy, design, development, or infrastructure — we can plug in where you need us most.'
             },
             {
-              question: 'What is PrintBridge?',
-              answer: 'PrintBridge by Zentra is a seamless print integration solution that connects your SaaS platform to a wide range of printers for efficient, reliable label and document printing.'
+              question: 'How long does a typical project take?',
+              answer: 'Most projects take 4–12 weeks, depending on complexity. We’ll always give you a clear timeline before we begin.'
             },
             {
-              question: 'Why choose Zentra for SaaS solutions?',
-              answer: 'Zentra offers secure, scalable, and innovative SaaS solutions tailored to your business needs, including InstaLabel and PrintBridge for automation and printing.'
+              question: 'Is Zentra only for tech companies?',
+              answer: 'Not at all. We work with businesses across industries — from food and logistics to retail, health, and manufacturing.'
             },
             {
-              question: 'How can I get started with Zentra?',
-              answer: 'Contact us to discuss your requirements and discover how Zentra\'s software solutions, including InstaLabel and PrintBridge, can help your business grow.'
+              question: 'Do you offer ongoing support or maintenance?',
+              answer: 'Yes. We don’t disappear after launch. We offer ongoing support, updates, and iteration plans based on your needs.'
+            },
+            {
+              question: 'Can you integrate with our existing tools or systems?',
+              answer: 'Definitely. We specialize in building around your workflow, not replacing it. APIs, hardware, legacy systems — we’ll connect it all.'
+            },
+            {
+              question: 'Do you build white-label or partner products?',
+              answer: 'Yes — we’re happy to collaborate under your brand or co-develop something custom as a long-term partner.'
             }
           ]} />
         </div>
-      </section>
-      {/* <Footer /> */}
+      </motion.section>
     </div>
   );
 }

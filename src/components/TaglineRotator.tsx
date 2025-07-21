@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const words = ['grows', 'scales', 'automates', 'adapts', 'thrives', 'leads', 'evolves']
+const words = ['grow', 'scale', 'automate', 'adapt', 'thrive', 'lead', 'evolve']
 
 export default function TaglineRotator() {
   const [index, setIndex] = useState(0)
@@ -21,7 +21,7 @@ export default function TaglineRotator() {
 
   return (
     <h1 className="text-4xl md:text-5xl font-semibold text-center text-gray-800">
-      Where your business{' '}
+      Where businesses{' '}
       <AnimatePresence mode="wait">
         <motion.span
           key={words[index]}
