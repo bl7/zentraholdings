@@ -1,7 +1,7 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion, MotionProps } from 'framer-motion';
+import { motion, MotionProps, AnimatePresence } from 'framer-motion';
 import { FaWifi, FaTabletAlt, FaTags } from "react-icons/fa";
 
 interface Project {
@@ -49,142 +49,140 @@ const features = [
   { icon: <FaWifi className="h-5 w-5 text-[#4A164B]" />, label: "PrintBridge" },
   { icon: <FaTabletAlt className="h-5 w-5 text-[#21C6A6]" />, label: "TapTab" },
 ];
-const ProjectShowcase = ({ projects, animateProps }: ProjectShowcaseProps) => {
-  const sectionAnim = animateProps
-    ? {
-        ...animateProps,
-        transition: animateProps.transition
-          ? { ...animateProps.transition, ease: 'easeOut' as const }
-          : undefined,
-      }
-    : defaultSectionAnim;
+const ProjectShowcase = ({ projects }: ProjectShowcaseProps) => {
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
+
   return (
-    <motion.section
-      className="w-full"
-      {...sectionAnim}
-    >
-       <div className="text-center max-w-2xl mx-auto mb-4">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
-      Products built with purpose.
-
-
-      </h2>
-      <p className="text-lg text-gray-700">
-      Every product we touch is shaped by shared vision, rigorous thinking, and relentless iteration. Explore what we’ve launched — and what you could build next.
-
-
-      </p>
-    </div>
-    {/* Feature Icons/Labels */}
-    <div className="flex flex-wrap justify-center gap-6 mt-0">
-      {features.map((f) => (
-        <div key={f.label} className="flex items-center gap-2 text-sm font-semibold text-gray-700 bg-white rounded-full px-4 py-2 shadow border border-gray-100">
-          {f.icon}
-          <span>{f.label}</span>
-        </div>
-      ))}
-    </div>
-      <div className="w-full flex flex-col snap-y snap-mandatory overflow-y-auto max-h-[300vh]">
-        {projects.map((project, idx) => (
-          <motion.div
-            key={project.id}
-            className="relative flex flex-col lg:flex-row items-center justify-center min-h-[60vh] snap-start py-0 px-2 lg:px-0 border-b border-gray-100 bg-gradient-to-br from-white to-gray-50 overflow-hidden"
-            {...(animateProps
-              ? {
-                  initial: animateProps.initial,
-                  whileInView: animateProps.whileInView,
-                  transition: {
-                    ...animateProps.transition,
-                    delay: idx * 0.07,
-                    ease: 'easeOut' as const,
-                  },
-                  viewport: animateProps.viewport,
-                }
-              : defaultItemAnim(idx))}
-          >
-            {/* Blob SVG */}
-            <svg
-              width="420"
-              height="420"
-              viewBox="0 0 200 200"
-              className="absolute right-[-6vw] top-1/2 -translate-y-1/2 z-0 hidden md:block"
-              aria-hidden="true"
-            >
-              <path
-                d={blobShapes[idx % blobShapes.length]}
-                fill={project.blobColor}
-                opacity="0.18"
-                transform="translate(100 100)"
-              />
-            </svg>
-
-            {/* Left: Text */}
-            <div className="flex-1 max-w-xl mb-4 lg:mb-0 lg:mr-8 z-10 flex flex-col justify-center">
-              {/* All-caps label with icon */}
-              <div className="flex items-center mb-2">
-                {project.labelIcon && <span className="mr-2 text-lg">{project.labelIcon}</span>}
-                <span className="uppercase tracking-widest text-xs font-bold text-gray-700/80">
-                  {project.label || project.category}
-                </span>
-              </div>
-              {/* Headline */}
-              <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4 leading-tight">
-                {project.title}
-              </h2>
-              {/* Description */}
-              <p className="text-base text-gray-700 mb-6">
-                {project.description}
-              </p>
-              {/* Stat/CTA if present */}
-              {project.stat && (
-                <div className="mb-6">
-                  <span className="text-2xl font-extrabold" style={{ color: project.statColor || '#9321C6' }}>{project.stat}</span>
-                  <span className="ml-2 text-base text-gray-700 font-medium">{project.statText}</span>
-                </div>
-              )}
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-[#4A164B] font-semibold hover:text-[#9321C6] transition-colors text-base"
+    <section className="w-full">
+      <div className="text-center max-w-2xl mx-auto mb-4">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
+          Products built with purpose.
+        </h2>
+        <p className="text-lg text-gray-700">
+          Every product we touch is shaped by shared vision, rigorous thinking, and relentless iteration. Explore what we’ve launched — and what you could build next.
+        </p>
+      </div>
+      {/* Accordion Titles/Headers */}
+      <div className="w-full flex flex-col gap-0 items-center">
+        <div className="w-full max-w-6xl flex flex-col gap-0">
+          {projects.map((project, idx) => (
+            <div key={project.id} className="my-2">
+              <button
+                className={`flex items-center gap-2 w-full text-left text-2xl font-bold px-8 py-6 transition-colors border-l-4 rounded-xl mx-4 md:mx-0 ${openIdx === idx ? 'border-[#9321C6] bg-[#f3e8ff]/40 text-[#9321C6]' : 'border-transparent bg-white text-gray-900 hover:bg-gray-50'}`}
+                onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
+                aria-expanded={openIdx === idx}
+                aria-controls={`project-content-${idx}`}
+                type="button"
+                style={{boxShadow: openIdx === idx ? '0 2px 16px 0 rgba(147,33,198,0.08)' : undefined}}
               >
-                View Solutions
-                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                {project.labelIcon}
+                <span>{project.label || project.category}</span>
+                <svg
+                  className={`w-6 h-6 ml-2 transition-transform duration-300 ${openIdx === idx ? 'rotate-90 text-[#9321C6]' : 'text-gray-400'}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </a>
+              </button>
             </div>
-
-            {/* Right: Browser Wrapper with Image */}
-            <div className="flex-1 flex items-center justify-center w-full max-w-lg z-10">
-              <div className="w-full bg-gray-100 shadow-2xl border border-gray-200 overflow-hidden relative" style={{ aspectRatio: '16/10' }}>
-                {/* Browser Bar */}
-                <div className="flex items-center h-10 px-4" style={{ background: '#4A164B' }}>
-                  <span className="w-3 h-3 bg-white/60 rounded-full mr-2"></span>
-                  <span className="w-3 h-3 bg-white/60 rounded-full mr-2"></span>
-                  <span className="w-3 h-3 bg-white/60 rounded-full"></span>
-                  <span className="ml-4 text-xs text-white/80 font-mono truncate">{project.title.toLowerCase().replace(/\s+/g, '')}.zentra.app</span>
+          ))}
+        </div>
+      </div>
+      {/* Open project content: render outside the max-w-6xl container, full width */}
+      {projects.map((project, idx) => (
+        openIdx === idx && (
+          <AnimatePresence key={project.id}>
+            <motion.div
+              id={`project-content-${idx}`}
+              key="content"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.35, ease: 'easeInOut' }}
+              className="overflow-visible bg-gradient-to-br from-white to-gray-50 w-full"
+            >
+              <div className="relative w-full flex flex-col lg:flex-row items-center justify-center min-h-[60vh] py-0 px-2 lg:px-0 border-b border-gray-100 bg-gradient-to-br from-white to-gray-50 overflow-visible">
+                {/* Blob SVG */}
+                <svg
+                  width="800"
+                  height="800"
+                  viewBox="0 0 200 200"
+                  className="absolute -right-56 top-1/2 -translate-y-1/2 z-0 pointer-events-none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d={blobShapes[idx % blobShapes.length]}
+                    fill={project.blobColor}
+                    opacity="0.18"
+                    transform="translate(100 100)"
+                  />
+                </svg>
+                {/* Left: Text */}
+                <div className="flex-1 max-w-xl mb-4 lg:mb-0 lg:mr-8 z-10 flex flex-col justify-center px-8">
+                  <div className="flex items-center mb-2">
+                    {project.labelIcon && <span className="mr-2 text-lg">{project.labelIcon}</span>}
+                    <span className="uppercase tracking-widest text-xs font-bold text-gray-700/80">
+                      {project.label || project.category}
+                    </span>
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4 leading-tight">
+                    {project.title}
+                  </h2>
+                  <p className="text-base text-gray-700 mb-6">
+                    {project.description}
+                  </p>
+                  {project.stat && (
+                    <div className="mb-6">
+                      <span className="text-2xl font-extrabold" style={{ color: project.statColor || '#9321C6' }}>{project.stat}</span>
+                      <span className="ml-2 text-base text-gray-700 font-medium">{project.statText}</span>
+                    </div>
+                  )}
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-[#4A164B] font-semibold hover:text-[#9321C6] transition-colors text-base"
+                  >
+                    View Solutions
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
                 </div>
-                {/* Project Image */}
-                <div className="relative w-full h-[calc(100%-2.5rem)] bg-black flex items-center justify-center">
-                  <div className="w-[95%] h-[92%] overflow-hidden shadow-lg border border-gray-200 bg-white">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      priority={idx === 0}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+                {/* Right: Browser Wrapper with Image */}
+                <div className="flex-1 flex items-center justify-center w-full max-w-lg z-10 relative">
+                  <div className="w-full bg-gray-100 shadow-2xl border border-gray-200 overflow-hidden relative" style={{ aspectRatio: '16/10', maxWidth: 640 }}>
+                    {/* Browser Bar */}
+                    <div className="flex items-center h-10 px-4" style={{ background: project.blobColor || '#4A164B' }}>
+                      <span className="w-3 h-3 bg-white/60 rounded-full mr-2"></span>
+                      <span className="w-3 h-3 bg-white/60 rounded-full mr-2"></span>
+                      <span className="w-3 h-3 bg-white/60 rounded-full"></span>
+                      <span className="ml-4 text-xs text-white/80 font-mono truncate">{project.title.toLowerCase().replace(/\s+/g, '')}.zentra.app</span>
+                    </div>
+                    {/* Project Image */}
+                    <div className="relative w-full h-[calc(100%-2.5rem)] bg-black flex items-center justify-center">
+                      <div className="w-[95%] h-[92%] overflow-hidden shadow-lg border border-gray-200 bg-white">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover object-top"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          priority={idx === 0}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </motion.section>
+            </motion.div>
+          </AnimatePresence>
+        )
+      ))}
+    </section>
   );
 };
 
