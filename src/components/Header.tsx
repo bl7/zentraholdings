@@ -26,7 +26,7 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center space-x-3 group">
-          <div className="w-10 h-10 overflow-hidden shadow-lg  group-hover:scale-105 transition-transform bg-white flex items-center justify-center">
+          <div className="w-10 h-10 overflow-hidden  flex items-center justify-center">
             <Image src="/icon.png" alt="Zentra Holdings Ltd. Logo" width={40} height={40} priority />
           </div>
           <span className="text-2xl font-extrabold text-gray-900 tracking-tight group-hover:text-[#4A164B] transition-colors">Zentra</span>
