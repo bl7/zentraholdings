@@ -9,11 +9,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <span className="text-xl font-bold">Zentra Software Solutions Ltd</span>
+              <span className="text-xl font-bold">Zentra Holdings Ltd</span>
             </div>
             <p className="text-[#EBB424] mb-6 leading-relaxed">
               Custom development for businesses worldwide<br/>
-              Remote team, professional delivery
+              Remote team, professional delivery.
             </p>
           </div>
 
@@ -82,7 +82,7 @@ const Footer = () => {
         <div className="border-t border-[#EBB424]/30 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-300 text-sm">
-              © 2024 Zentra Software Solutions Ltd. All rights reserved.
+              © 2024 Zentra Holdings Ltd. All rights reserved.
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="/privacy-policy" className="text-gray-200 hover:text-[#E51670] transition-colors text-sm">Privacy Policy</a>
