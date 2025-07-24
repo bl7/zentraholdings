@@ -9,7 +9,6 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
           <div className="flex justify-center mt-10">
-            <Image src="/logo.png" alt="Zentra Holdings Ltd. Logo" width={220} height={220} priority />
           </div>
           <div className="mt-0 mb-2">
             <TaglineRotator />
